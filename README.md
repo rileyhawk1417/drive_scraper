@@ -4,6 +4,7 @@ The goal of this project is to have an API that fetches images from public share
 
 ## ToDo
 
+- [ ] Launch it on vercel
 - [ ] Google Drive Support
   - [ ] Fetch images
   - [ ] Generate blurhash image data
