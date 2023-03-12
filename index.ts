@@ -24,13 +24,15 @@ app.get('/data', async (req: Request, res: Response) => {
 // Include function  to post
 app.post('/fetch', async (req, res) => {
   QueryData(res, req)
-}
-
-)
+})
 
 app.listen(PORT, () => {
   console.log('Server is up and runnning :)')
 })
 
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).end('Servers running and is 200')
+  res.send('Index page for the server')
+})
 
 export default handler
