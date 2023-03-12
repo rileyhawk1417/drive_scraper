@@ -5,12 +5,15 @@ import { open } from 'lmdb';
 import sharp from 'sharp'
 import { encode, decode } from 'blurhash'
 
-
 const DB = open({ path: 'img-db', compression: true })
 const couples = 'https://drive.google.com/drive/folders/1uwxeLdxCGsBmMOgTue9qiKz2iFu3hWv9?usp=sharing'
 const CORS = cors()
 const app: Express = express()
 const PORT = process.env.PORT || 5000
+
+const handler = (res, req) => {
+  res.status(200).end('Server OK')
+}
 
 app.use(CORS)
 app.use(express.json())
@@ -115,4 +118,5 @@ const loadData = async () => {
     console.log(e)
   }
 }
-//
+
+export default handler
