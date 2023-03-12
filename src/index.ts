@@ -4,7 +4,6 @@ import GetGDrive from './api.js'
 import { open } from 'lmdb';
 import sharp from 'sharp'
 import { encode, decode } from 'blurhash'
-import { getPlaiceholder } from 'plaiceholder';
 import { nameFormatter } from './utils.js';
 
 
@@ -54,17 +53,6 @@ app.listen(PORT, () => {
 })
 
 let reg = new RegExp(/['*.jpg', '*.png']/g)
-
-const blur = async (img: any) => {
-  try {
-    await getPlaiceholder(img).then(({ blurhash }) => {
-      console.log(blurhash)
-      return blurhash
-    });
-  } catch (err) {
-    console.log(err)
-  }
-}
 
 const getURL = async (url: string) => {
   //NOTE: Blurhash, base64 needs actual image data
