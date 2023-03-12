@@ -11,10 +11,6 @@ const CORS = cors()
 const app: Express = express()
 const PORT = process.env.PORT || 5000
 
-const handler = (res, req) => {
-  res.status(200).end('Server OK')
-}
-
 app.use(CORS)
 app.use(express.json())
 app.get('/data', async (req: Request, res: Response) => {
@@ -31,8 +27,6 @@ app.listen(PORT, () => {
 })
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).end('Servers running and is 200')
   res.send('Index page for the server')
 })
 
-export default handler
