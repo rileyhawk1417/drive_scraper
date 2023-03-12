@@ -4,7 +4,6 @@ import GetGDrive from './api.js'
 import { open } from 'lmdb';
 import sharp from 'sharp'
 import { encode, decode } from 'blurhash'
-import { nameFormatter } from './utils.js';
 
 
 const DB = open({ path: 'img-db', compression: true })
