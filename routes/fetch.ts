@@ -1,10 +1,8 @@
 import GetGDrive from './api.js'
-import { open } from 'lmdb'
-const DB = open({ path: 'img-db', compression: true })
 
 let reg = new RegExp(/['*.jpg', '*.png']/g)
 
-const getURL = async (url: string) => {
+export const getURL = async (url: string) => {
   //NOTE: Blurhash, base64 needs actual image data
   //WARN: Does not work well with googles custom file links
   try {
@@ -12,6 +10,8 @@ const getURL = async (url: string) => {
     let subFolder: any = {};
     let root: any = {};
     const res = await GetGDrive(url, true)
+    return res;
+    /*
     res.map((val: any) => {
       if (res.type == 'folder') {
         subFolder.img = res.url
@@ -24,8 +24,6 @@ const getURL = async (url: string) => {
         content.push({ root })
       }
     })
-    DB.put('org', { org: res })
-    DB.put('key', { key: content })
 
     /*
     let db: any = []
@@ -58,7 +56,7 @@ const getURL = async (url: string) => {
 
 const loadData = async () => {
   try {
-    let reply = DB.get('key').key
+    let reply = 'Hi'
     //let reply = DB.get('org').org
     return reply
   }
